@@ -5,19 +5,7 @@
 #include"Manager.h"
 #include"Employee.h"
 using namespace std;
-void test()
-{
-	AbstractWorker* worker1 = new Boss(1, "张三", 1);
-	AbstractWorker* worker2 = new Manager(2, "李四", 3);
-	AbstractWorker* worker3 = new Employee(3, "王五", 3);
-	worker1->showInfo();
-	worker2->showInfo();
-	worker3->showInfo();
-	delete worker1, worker2, worker3;
-	worker1 = worker2 = worker3 = NULL;
-	system("pause");
-	system("cls");
-}
+
 int main()
 {
 	WorkerManager wm;
@@ -33,7 +21,18 @@ int main()
 			wm.ExitSystem();
 			break;
 		case 1:
-			test();
+			wm.Add_Emp();
+			break;
+		case 2:
+			wm.Show_Emp();
+			break;
+		case 3:
+			wm.Delete_Emp();
+			break;
+		default :
+			cout << "非法输入!" << endl;
+			system("pause");
+			system("cls");
 			break;
 		}
 	}

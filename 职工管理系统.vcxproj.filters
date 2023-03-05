@@ -47,7 +47,7 @@
     <ClCompile Include="Employee.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="AbstractWorker.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

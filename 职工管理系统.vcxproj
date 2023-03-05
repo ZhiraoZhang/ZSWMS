@@ -134,11 +134,11 @@
     <ClInclude Include="WorkerManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractWorker.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="test.cpp" />
     <ClCompile Include="WorkerManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

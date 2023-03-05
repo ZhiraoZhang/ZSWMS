@@ -8,7 +8,7 @@ class AbstractWorker
 public:
 	//显示个人信息
 	virtual void showInfo() = 0;
-	virtual std::string getDeptName() = 0;
+	std::string getDeptName();
 
 	int m_Id;//职工编号
 	std::string m_Name;//姓名
