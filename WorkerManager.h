@@ -38,6 +38,10 @@ public:
 	//删除员工
 	void Delete_Emp();
 	int IsExist(int id);
+	//修改员工
+	void Mod_Emp();
+
+	void Find_Emp();
 
 };
 

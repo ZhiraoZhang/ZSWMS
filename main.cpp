@@ -29,6 +29,9 @@ int main()
 		case 3:
 			wm.Delete_Emp();
 			break;
+		case 4:
+			wm.Mod_Emp();
+			break;
 		default :
 			cout << "非法输入!" << endl;
 			system("pause");

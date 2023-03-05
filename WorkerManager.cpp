@@ -237,7 +237,6 @@ void WorkerManager::Delete_Emp()
 	else cout << "删除失败，没有找到该员工！" << endl;
 	system("pause");
 	system("cls");
-
 }
 
 int WorkerManager::IsExist(int id)
@@ -252,4 +251,70 @@ int WorkerManager::IsExist(int id)
 		}
 	}
 	return index;
+}
+
+void WorkerManager::Mod_Emp()
+{
+	if (this->m_fileIsEmpty)
+		cout << "文件为空。" << endl;
+	else
+	{
+		cout << "请输入职工编号：";
+		int modid;
+		cin >> modid;
+		int ret = this->IsExist(modid);
+		if (ret != -1)
+		{
+			delete this->m_EmpArray[ret];
+			int id;
+			string name;
+			int dSelect;
+
+			cout << "请输入新职工编号：" << endl;
+			cin >> id;
+
+			cout << "请输入新职工姓名：" << endl;
+			cin >> name;
+
+			cout << "请选择该职工的岗位：" << endl;
+			cout << "1、普通职工" << endl;
+			cout << "2、经理" << endl;
+			cout << "3、老板" << endl;
+			cin >> dSelect;
+
+			AbstractWorker* worker = NULL;
+			switch (dSelect)
+			{
+			case 1: //普通员工
+				worker = new Employee(id, name, 1);
+				break;
+			case 2: //经理
+				worker = new Manager(id, name, 2);
+				break;
+			case 3:  //老板
+				worker = new Boss(id, name, 3);
+				break;
+			default:
+				break;
+			}
+			this->m_EmpArray[ret] = worker;
+			this->Save_emp();			
+			cout << "员工修改成功。" << endl;
+		}
+		else cout << "没有找到该员工。" << endl;
+	}
+	system("pause");
+	system("cls");
+}
+
+void WorkerManager::Find_Emp()
+{
+	if (this->m_fileIsEmpty)
+		cout << "文件为空。" << endl;
+	else
+	{
+		cout << "请输入职工编号：";
+		int findid;
+		cin >> findid;
+	}
 }
