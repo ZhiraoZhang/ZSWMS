@@ -310,11 +310,100 @@ void WorkerManager::Mod_Emp()
 void WorkerManager::Find_Emp()
 {
 	if (this->m_fileIsEmpty)
+	{
 		cout << "文件为空。" << endl;
+		system("pause");
+		system("cls");
+	}
 	else
 	{
 		cout << "请输入职工编号：";
 		int findid;
 		cin >> findid;
+		for (size_t i = 0; i < m_EmpNum; i++)
+		{
+			if (findid == m_EmpArray[i]->m_Id)
+			{
+				this->m_EmpArray[i]->showInfo();
+				system("pause");
+				system("cls");
+				return;
+			}
+		}
+		cout << "没有匹配的数据。" << endl;
+		system("pause");
+		system("cls");
 	}
+}
+
+void WorkerManager::Sort_Emp()
+{
+	if (this->m_fileIsEmpty)
+	{
+		cout << "文件为空。" << endl;
+		system("pause");
+		system("cls");
+	}
+	else
+	{
+		cout << "请选择排序方式：1.升序,2.降序:";
+		int select;
+		cin >> select;
+		for (int i = 0; i < m_EmpNum; i++)
+		{
+			int minOrmax = i;
+			for (size_t j = i+1; j < this->m_EmpNum; j++)
+			{
+				if (select == 1)
+				{
+					if (this->m_EmpArray[minOrmax]->m_Id > this->m_EmpArray[j]->m_Id)
+					{
+						minOrmax = j;
+					}
+				}
+				else
+				{
+					if (this->m_EmpArray[minOrmax]->m_Id < this->m_EmpArray[j]->m_Id)
+					{
+						minOrmax = j;
+					}
+				}
+			}
+			if (i!=minOrmax)
+			{
+				AbstractWorker* tempworker = this->m_EmpArray[i]; 
+				this->m_EmpArray[i] = this->m_EmpArray[minOrmax];
+				this->m_EmpArray[minOrmax] = tempworker;
+			}
+
+		}
+		this->Save_emp();
+		this->Show_Emp();
+	}
+}
+
+void WorkerManager::Clear_File()
+{
+	cout << "确认清空？1、清空，2、取消" << endl;
+	int select = 0;
+	cin >> select;
+	if (select==1)
+	{
+		fstream ofs(FILENAME, ios::trunc);//删除文件后重新创建
+		ofs.close();
+		if (this->m_EmpArray!=NULL)
+		{
+			for (int i = 0; i < this->m_EmpNum; i++)
+			{
+				delete this->m_EmpArray[i];
+				this->m_EmpArray[i] = NULL;
+			}
+			delete[] this->m_EmpArray;
+			this->m_EmpArray = NULL;
+			this->m_EmpNum = 0;
+			this->m_fileIsEmpty = 1;
+		}
+	}
+	system("pause");
+	system("cls");
 }

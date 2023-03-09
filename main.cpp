@@ -32,6 +32,15 @@ int main()
 		case 4:
 			wm.Mod_Emp();
 			break;
+		case 5:
+			wm.Find_Emp();
+			break;
+		case 6:
+			wm.Sort_Emp();
+			break;
+		case 7:
+			wm.Clear_File();
+			break;
 		default :
 			cout << "非法输入!" << endl;
 			system("pause");

@@ -1,4 +1,5 @@
-1 Sherlock 3
-2 homeless 2
+7 jams 1
+6 miky 2
 3 white 1
-4 pink 2
+2 homeless 2
+1 Sherlock 3

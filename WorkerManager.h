@@ -43,5 +43,9 @@ public:
 
 	void Find_Emp();
 
+	//排序员工
+	void Sort_Emp();
+
+	void Clear_File();
 };
 
